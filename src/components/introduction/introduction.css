@@ -1,0 +1,9 @@
+/* Hero card outer glow */
+.hero-card-glow {
+  background: linear-gradient(
+    135deg,
+    var(--accent-glow),
+    transparent 40%,
+    var(--accent-dim)
+  );
+}

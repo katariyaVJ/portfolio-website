@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Picto Portfolio</string>
+    <string name="title_activity_main">Picto Portfolio</string>
+    <string name="package_name">com.vijaykatariya.picto</string>
+    <string name="custom_url_scheme">com.vijaykatariya.picto</string>
+</resources>

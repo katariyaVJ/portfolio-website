@@ -1,0 +1,344 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@theme {
+  --font-sans: "Inter", "Outfit", "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-display: "Outfit", "Space Grotesk", sans-serif;
+
+  --breakpoint-xxs: 21.25rem;
+  --breakpoint-xs: 23.125rem;
+  --breakpoint-xxl: 82.5rem;
+
+  --color-picto-primary: #10b981;
+  --color-picto-primary-dark: #059669;
+
+  --radius-picto: 2rem;
+  /* Consistent 32px for larger cards */
+  --radius-picto-sm: 1.5rem;
+  /* 24px for smaller elements */
+}
+
+:root {
+  /* Dark Theme (Default) - Reference: brijeshvamja.com */
+  --bg: #030303;
+  --bg-elevated: #0a0a0a;
+  --card: rgba(13, 13, 13, 0.8);
+  --card-hover: rgba(18, 18, 18, 0.9);
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.15);
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.7);
+  --accent: #10b981;
+  /* Green accent */
+  --accent-dim: rgba(16, 185, 129, 0.1);
+  --accent-glow: rgba(16, 185, 129, 0.2);
+  --selection: rgba(16, 185, 129, 0.3);
+
+  --glass: rgba(10, 10, 10, 0.75);
+  --glass-border: rgba(255, 255, 255, 0.1);
+
+  --grid-line: rgba(255, 255, 255, 0.03);
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+
+
+/* Base Styles */
+html {
+  overflow-x: hidden;
+}
+
+body,
+#root {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  cursor: default !important;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  position: relative;
+  overflow: visible !important;
+}
+
+body {
+  overflow-x: hidden;
+  /* Professional Grid Background */
+  background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+a,
+button,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+.cursor-pointer,
+.social-icon,
+.email-link {
+  cursor: pointer !important;
+}
+
+/* Subtle Glow Effects */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background:
+    radial-gradient(circle at 10% 10%, var(--accent-dim) 0%, transparent 40%),
+    radial-gradient(circle at 90% 90%, var(--accent-dim) 0%, transparent 40%);
+  pointer-events: none;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+::selection {
+  background-color: var(--selection);
+  color: inherit;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.section-title {
+  @apply text-5xl md:text-7xl lg:text-8xl mb-8 leading-[1.1] font-bold;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--text) 30%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Utilities */
+.glass-panel {
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+}
+
+.liquid-glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3), inset 0 1px 0 0 rgba(255, 255, 255, 0.2), inset 1px 0 0 0 rgba(255, 255, 255, 0.05);
+}
+
+.premium-card {
+  @apply relative overflow-hidden transition-all duration-500 rounded-[var(--radius-picto)] border;
+  background-color: var(--card);
+  border-color: var(--border);
+}
+
+.premium-card:hover {
+  border-color: var(--border-hover);
+  background-color: var(--card-hover);
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px -15px var(--accent-glow);
+}
+
+.cyber-grid-bg {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(circle at 50% 50%, black 40%, transparent 90%);
+}
+
+.glow-mesh {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 800px;
+  background: radial-gradient(circle at 50% -100px, var(--accent-dim), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Buttons */
+.btn-premium {
+  @apply px-10 py-4 rounded-full font-bold transition-all duration-500 flex items-center justify-center gap-2 text-lg whitespace-nowrap;
+  background: var(--accent);
+  color: #000;
+  /* Dark text on bright green looks more premium like the ref */
+  box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+.btn-premium:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px var(--accent-glow);
+  filter: brightness(1.1);
+}
+
+.btn-ghost {
+  @apply px-10 py-4 rounded-full font-bold transition-all duration-500 border border-white/10 text-lg whitespace-nowrap;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.btn-ghost:hover {
+  background: var(--accent-dim);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+/* Global Layout Standards - Pixel Perfect Spacing */
+.content-container {
+  width: 100%;
+  max-width: 1440px;
+  /* Maximum limit for ultra-wide screens */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 1024px) {
+  .content-container {
+    max-width: 1200px;
+    /* Matches the focused look of the reference site */
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* Layout Spacing: main clears to navbar middle-end (98px), sections add 125px hero/gap padding. */
+main {
+  padding-top: 98px;
+}
+
+section {
+  padding-top: 125px;
+  padding-bottom: 0;
+}
+
+#resume {
+  padding-top: 32px !important;
+}
+
+.kicker {
+  @apply inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[var(--accent-dim)] border border-[var(--accent)]/20 mb-6;
+}
+
+.kicker-dot {
+  @apply w-2 h-2 rounded-full bg-[var(--accent)] animate-pulse;
+}
+
+.kicker-text {
+  @apply text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)];
+}
+
+/* Font visibility fixes */
+p,
+span,
+div,
+a {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.text-muted-visible {
+  color: var(--text-muted);
+  opacity: 1;
+  /* Increased from 0.9 for better visibility */
+}
+
+
+/* Hover effects for interactive elements */
+a,
+button {
+  @apply cursor-pointer transition-all duration-300;
+}
+
+.social-container {
+  @apply flex justify-center gap-4 relative z-10;
+}
+
+.social-icon {
+  @apply w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-xl text-white transition-all duration-300 cursor-pointer;
+}
+
+.social-icon:hover {
+  @apply !bg-[var(--accent)] !text-black shadow-[0_0_20px_var(--accent-glow)];
+  transform: scale(1.08) !important;
+}
+
+.email-link {
+  @apply relative inline-block text-lg transition-all duration-300 pb-1;
+  color: var(--text-muted);
+}
+
+.email-link::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-0 h-[2px] transition-all duration-500 ease-in-out;
+  background-color: var(--accent);
+}
+
+.email-link:hover {
+  color: var(--accent) !important;
+}
+
+.email-link:hover::after {
+  @apply w-full;
+}
+
+.interactive-hover:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}

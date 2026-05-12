@@ -1,0 +1,137 @@
+/* Education section — motion + atmosphere */
+.edu-orbit {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.55;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.edu-orbit-a {
+  width: min(420px, 70vw);
+  height: min(420px, 70vw);
+  background: radial-gradient(circle, #c084fc 0%, transparent 70%);
+  animation: edu-drift 18s ease-in-out infinite;
+}
+
+.edu-orbit-b {
+  width: min(380px, 65vw);
+  height: min(380px, 65vw);
+  background: radial-gradient(circle, #22d3ee 0%, transparent 68%);
+  animation: edu-drift 22s ease-in-out infinite reverse;
+  animation-delay: -4s;
+}
+
+.edu-orbit-c {
+  width: min(280px, 50vw);
+  height: min(280px, 50vw);
+  background: radial-gradient(circle, #f472b6 0%, transparent 65%);
+  animation: edu-drift 14s ease-in-out infinite;
+  animation-delay: -8s;
+}
+
+@keyframes edu-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(8%, -6%) scale(1.08);
+  }
+  66% {
+    transform: translate(-6%, 8%) scale(0.95);
+  }
+}
+
+.edu-grid-bg {
+  background-image:
+    linear-gradient(rgba(153, 41, 251, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(153, 41, 251, 0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 20%, transparent 100%);
+}
+
+.edu-card {
+  position: relative;
+  isolation: isolate;
+  transition:
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease;
+}
+
+.edu-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(153, 41, 251, 0.9),
+    rgba(34, 211, 238, 0.5),
+    rgba(244, 114, 182, 0.6),
+    rgba(153, 41, 251, 0.9)
+  );
+  background-size: 300% 300%;
+  animation: edu-border-flow 8s linear infinite;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+  opacity: 0.85;
+}
+
+@keyframes edu-border-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.edu-card:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow:
+    0 24px 50px -12px rgba(153, 41, 251, 0.35),
+    0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+}
+
+.edu-shimmer {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.12) 50%,
+    transparent 60%
+  );
+  background-size: 200% 100%;
+  animation: edu-shimmer 4s ease-in-out infinite;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+@keyframes edu-shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.edu-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
