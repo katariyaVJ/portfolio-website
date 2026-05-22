@@ -242,11 +242,10 @@ h6 {
 .content-container {
   width: 100%;
   max-width: 1440px;
-  /* Maximum limit for ultra-wide screens */
   margin-left: auto;
   margin-right: auto;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: clamp(0.75rem, 4vw, 1.25rem);
+  padding-right: clamp(0.75rem, 4vw, 1.25rem);
 }
 
 @media (min-width: 1024px) {
@@ -258,18 +257,39 @@ h6 {
   }
 }
 
-/* Layout Spacing: main clears to navbar middle-end (98px), sections add 125px hero/gap padding. */
+/* Layout Spacing: main clears navbar; sections use fluid top padding */
 main {
-  padding-top: 98px;
+  padding-top: clamp(5.5rem, 14vw, 6.125rem);
 }
 
 section {
-  padding-top: 125px;
+  padding-top: clamp(3.5rem, 10vw, 7.8125rem);
   padding-bottom: 0;
 }
 
 #resume {
   padding-top: 32px !important;
+}
+
+/* Home hero: tighter stack on small screens, side-by-side spacing on desktop */
+.home-hero-grid #introduction {
+  padding-top: clamp(1.5rem, 5vw, 3rem);
+}
+
+@media (min-width: 1024px) {
+  .home-hero-grid #introduction {
+    padding-top: 0;
+  }
+}
+
+.home-hero-grid #resume {
+  padding-top: clamp(1.5rem, 4vw, 2rem) !important;
+}
+
+@media (min-width: 1024px) {
+  .home-hero-grid #resume {
+    padding-top: 32px !important;
+  }
 }
 
 .kicker {

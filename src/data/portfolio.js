@@ -5,7 +5,7 @@
 
 import { faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
-import heroPortrait from "../assets/images/person3.webp";
+import heroPortrait from "../assets/images/vijay-portrait.png";
 import portCard1 from "../assets/images/portfolio-images/card-1.png";
 import portCard2 from "../assets/images/portfolio-images/card-2.png";
 import portCard3 from "../assets/images/portfolio-images/card-3.png";
@@ -22,7 +22,8 @@ import resumePdf from "../assets/files/Resume.pdf";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/vijay-katariya-610761277/";
 
 export const site = {
-  title: "Vijay Katariya | Mobile App Developer in Surat | Flutter Developer",
+  siteName: "vijay-portfolio",
+  title: "vijay-portfolio | Vijay Katariya | Mobile App Developer in Surat",
   brandName: "Vijay Katariya",
   /** Navbar subtitle under name (reference-style, uppercase) */
   navSubtitle: "MOBILE APP DEVELOPER",
