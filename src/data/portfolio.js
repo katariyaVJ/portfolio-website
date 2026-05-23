@@ -6,11 +6,6 @@
 import { faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 import heroPortrait from "../assets/images/vijay-portrait.png";
-import portCard1 from "../assets/images/portfolio-images/card-1.png";
-import portCard2 from "../assets/images/portfolio-images/card-2.png";
-import portCard3 from "../assets/images/portfolio-images/card-3.png";
-import portCard4 from "../assets/images/portfolio-images/card-4.png";
-import portCard5 from "../assets/images/portfolio-images/card-5.png";
 import portCard6 from "../assets/images/portfolio-images/card-6.png";
 
 import blogImg1 from "../assets/images/blog/blog-1.jpg";
@@ -117,15 +112,74 @@ export const portfolioSection = {
   sectionKicker: "Portfolio",
   title: "Latest Projects",
   subtitle:
-    "Flutter mobile apps with API integration, Firebase, and modern UI — Android & iOS from Surat, India.",
+    "Web applications and mobile apps with API integration, SEO optimization, and modern UI/UX.",
   moreProjectsHref: "/projects",
   moreProjectsLabel: "View All Projects",
   /** Show this many cards in the home preview (rest via View All) */
-  previewCount: 2,
+  previewCount: 3,
+  homePreviewIds: ["hk-infotech", "plankworkout", "ecommerce-platform"],
   projects: [
     {
+      id: "ecommerce-platform",
+      image: "/ecommerce.png",
+      category: "WEBSITE / E-COMMERCE",
+      title: "Full-Stack E-Commerce Platform",
+      description: "A comprehensive e-commerce solution built with a responsive React frontend, powerful Laravel API backend, and a complete admin panel.",
+      longDescription: "This full-stack e-commerce platform was built to deliver a seamless shopping experience for users while providing robust management tools for administrators. The frontend is powered by React, offering fast page loads, dynamic cart management, and secure checkout flows. The backend runs on a Laravel API, handling secure authentication, product data, and order tracking. A dedicated admin panel allows store owners to easily manage products, track sales, and monitor business analytics.",
+      technologies: "React, Laravel API, REST APIs, Vanilla CSS, Vite, Admin Dashboard",
+      features: [
+        "Dynamic Product Catalog: Fast and responsive grid with advanced filtering and search capabilities.",
+        "Secure Checkout Flow: Integrated payment features with secure order processing.",
+        "Comprehensive Admin Panel: Manage inventory, track orders, and analyze sales data in real-time.",
+        "Laravel API Backend: Robust and secure backend architecture for handling complex business logic.",
+        "Responsive UI/UX: Optimized for mobile, tablet, and desktop devices for seamless shopping."
+      ],
+      link: "/project/ecommerce-platform",
+      liveLink: "",
+      companyProject: false,
+    },
+    {
+      id: "export-website",
+      image: "/export.png",
+      category: "WEBSITE / B2B EXPORT",
+      title: "Krushnkrupa Exporters: B2B Portal",
+      description: "A professional B2B export-import business website designed to showcase global trading services and product catalogs.",
+      longDescription: "Krushnkrupa Exporters is a dedicated B2B web platform built to establish a strong online presence for an international export business. Designed using React, HTML, CSS, and modern JavaScript, the website features a comprehensive product catalog, detailed company profile, and a dedicated inquiry system for international buyers. The design prioritizes trust and professionalism, offering clean navigation, fast load times, and SEO optimization to attract global trade partners.",
+      technologies: "React, HTML5, Vanilla CSS, JavaScript, SEO Optimization, Vite",
+      features: [
+        "Professional B2B Interface: Clean and corporate design tailored for international trade and global clients.",
+        "Detailed Product Catalog: Categorized display of export products with high-quality imagery and specifications.",
+        "Global Inquiry System: Integrated contact forms for bulk order inquiries and quotation requests.",
+        "SEO Optimized: Built with semantic HTML and optimized meta tags for better international search visibility.",
+        "Fully Responsive: Fluid layouts ensuring perfect display on mobile devices and large desktop monitors."
+      ],
+      link: "/project/export-website",
+      liveLink: "",
+      companyProject: false,
+    },
+    {
+      id: "hk-infotech",
+      image: "/infotech.png",
+      category: "WEBSITE / DIGITAL AGENCY",
+      title: "HK Infotech: Digital Agency Website",
+      description: "A premium website for a modern digital agency offering high-performance web development, mobile app development, digital marketing, and SEO solutions.",
+      longDescription: "HK Infotech is a professional digital agency platform designed to showcase full-stack digital services. The website highlights the agency's expertise in custom web application development, mobile application design, digital marketing campaigns, and search engine optimization (SEO) strategies. Built to deliver an elegant design with peak performance, it acts as a primary lead generation hub for modern business transformation.",
+      technologies: "React, Vanilla CSS, Vite, Framer Motion, SEO Best Practices, Responsive Web Design",
+      features: [
+        "Full-Service Digital Agency: Engaging showcase of web design, mobile apps, marketing campaigns, and SEO.",
+        "Modern Responsive Layout: Completely fluid UI/UX providing elegant user experiences across all screen sizes.",
+        "SEO Optimization & Best Practices: Clean heading structure, high-speed page loads, and semantic HTML tag integration.",
+        "Interactive Service Portfolios: Beautiful service catalogs designed with modern hover animations and glassmorphism.",
+        "High-Conversion Contact Funnels: Client intake systems and quick quote estimators to maximize lead capture.",
+        "Smooth Motion Design: Custom transitions and micro-interactions powered by Framer Motion."
+      ],
+      link: "/project/hk-infotech",
+      liveLink: "https://hkinfotech.in",
+      companyProject: false,
+    },
+    {
       id: "brainbite",
-      image: portCard1,
+      image: "/brainbite.jpg",
       category: "MOBILE APP / AI",
       title: "BrainBite: Daily Fun Facts & AI Trivia",
       description: "An AI-powered mobile app designed to make learning engaging and fun with personalized daily bite-sized facts and trivia.",
@@ -146,7 +200,7 @@ export const portfolioSection = {
     },
     {
       id: "taxtracker",
-      image: portCard2,
+      image: "/Save-Tax.jpg",
       category: "MOBILE APP / FINANCE",
       title: "TaxTracker: Expense & Mileage Tracker",
       description: "A smart finance and tax management mobile app designed for freelancers, self-employed professionals, and small businesses to log expenses and estimate deductions.",
@@ -167,9 +221,9 @@ export const portfolioSection = {
     },
     {
       id: "plankworkout",
-      image: portCard3,
+      image: "/plank.jpg",
       category: "MOBILE APP / FITNESS",
-      title: "ProPlank: AI Plank Workout & Timer",
+      title: "ProPlank: AI Plank Workout & Timer App",
       description: "An AI-powered fitness app designed to help users build core strength with posture detection, guided challenges, and gamified streak tracking.",
       longDescription: "ProPlank is a professionally developed AI-powered fitness mobile application designed to help users improve their core strength through smart plank workouts, posture tracking, and guided fitness challenges. The app combines AI posture detection, workout gamification, progress tracking, and structured plank challenge programs to create an engaging fitness experience. It helps users maintain proper plank form, stay consistent with workouts, and track their fitness progress effectively. Developed and launched professionally during my employment at Brainfleck Solution.",
       technologies: "Flutter, Dart, Firebase, Laravel API, REST APIs, Firebase Authentication, Camera & Motion Detection, Reusable Widget Architecture",
@@ -188,7 +242,7 @@ export const portfolioSection = {
     },
     {
       id: "gujarati-panchang",
-      image: portCard4,
+      image: "/hindu-panchang.jpg",
       category: "MOBILE APP / LIFESTYLE",
       title: "Panchang Guru: Smart Gujarati Calendar",
       description: "A beautifully designed Gujarati Panchang and Calendar app for 2025-2026 to track daily Choghadiya, auspicious Muhurat, and festivals.",

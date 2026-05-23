@@ -5,39 +5,25 @@ const Projects = ({ data }) => {
   const isInternal = href.startsWith("/");
 
   return (
-    <div className="premium-card group h-full flex flex-col bg-[var(--card)] p-4">
+    <div className="premium-card group h-full flex flex-col bg-[var(--card)] p-3">
       {/* Image Container */}
       {isInternal ? (
-        <Link to={href} className="block relative overflow-hidden aspect-[16/10] rounded-[1.5rem] mb-6">
+        <Link to={href} className="block relative overflow-hidden aspect-[4/3] rounded-[1.25rem] mb-4">
           <img
             src={data?.image}
             alt={data?.title}
             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
-          
-          {/* Category Tag */}
-          <div className="absolute top-4 left-4">
-            <span className="px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-bold uppercase tracking-[0.2em] text-white">
-              {data?.category}
-            </span>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
         </Link>
       ) : (
-        <div className="relative overflow-hidden aspect-[16/10] rounded-[1.5rem] mb-6">
+        <div className="relative overflow-hidden aspect-[4/3] rounded-[1.25rem] mb-4">
           <img
             src={data?.image}
             alt={data?.title}
             className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60" />
-          
-          {/* Category Tag */}
-          <div className="absolute top-4 left-4">
-            <span className="px-4 py-1.5 rounded-full bg-black/60 backdrop-blur-md border border-white/10 text-[10px] font-bold uppercase tracking-[0.2em] text-white">
-              {data?.category}
-            </span>
-          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-60" />
         </div>
       )}
 
@@ -54,21 +40,11 @@ const Projects = ({ data }) => {
             {data?.title}
           </h3>
         )}
-        <p className="text-lg text-[var(--text-muted)] mb-6 line-clamp-2 leading-relaxed font-medium">
+        <p className="text-base text-[var(--text-muted)] mb-5 leading-relaxed font-medium">
           {data?.description}
         </p>
-        
-        {data?.technologies && (
-          <div className="flex flex-wrap gap-2 mb-8">
-            {data.technologies.split(',').map((tech, i) => (
-              <span key={i} className="text-[11px] font-bold uppercase tracking-widest px-3 py-1 rounded-full bg-[var(--accent-dim)] text-[var(--accent)] border border-[var(--accent)]/10">
-                {tech.trim()}
-              </span>
-            ))}
-          </div>
-        )}
 
-        <div className="mt-auto pt-4 border-t border-white/5">
+        <div className="mt-auto pt-3 border-t border-white/5">
           {isInternal ? (
             <Link to={href} className="inline-flex items-center text-sm font-bold text-[var(--text)] hover:text-[var(--accent)] transition-all group/link tracking-widest uppercase">
               <span>EXPLORE</span>

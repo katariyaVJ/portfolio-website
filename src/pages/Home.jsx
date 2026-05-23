@@ -45,7 +45,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="lg:col-span-8 flex flex-col min-h-0 w-full min-w-0 lg:pl-6 xl:pl-16 2xl:pl-[120px]">
+          <div className="lg:col-span-8 lg:pt-[125px] flex flex-col min-h-0 w-full min-w-0 lg:pl-6 xl:pl-16 2xl:pl-[120px]">
             <section id="introduction">
               <Introduction />
             </section>

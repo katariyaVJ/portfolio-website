@@ -4,7 +4,9 @@ import Projects from "./Projects";
 import { portfolioSection } from "../../data/portfolio";
 
 const Portfolio = () => {
-  const preview = portfolioSection.projects.slice(0, portfolioSection.previewCount ?? 2);
+  const preview = portfolioSection.homePreviewIds
+    ? portfolioSection.homePreviewIds.map(id => portfolioSection.projects.find(p => p.id === id))
+    : portfolioSection.projects.slice(0, portfolioSection.previewCount ?? 3);
 
   return (
     <>
@@ -37,7 +39,7 @@ const Portfolio = () => {
         </Link>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
         {preview.map((data, index) => (
           <motion.div
             key={data.id ?? index}
