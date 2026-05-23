@@ -62,10 +62,10 @@ const NavBar = () => {
   };
 
   return (
-    <header className="fixed top-[35px] left-0 right-0 z-[100] transition-all duration-500">
+    <header className="fixed top-4 lg:top-[35px] left-0 right-0 z-[100] transition-all duration-500">
       <div className="content-container">
         <div 
-          className={`mx-auto max-w-[1400px] rounded-full liquid-glass transition-all duration-500 grid grid-cols-1 lg:grid-cols-12 items-center ${
+          className={`mx-auto max-w-[1400px] rounded-full liquid-glass transition-all duration-500 flex justify-between items-center ${
             scrolled ? "shadow-[0_20px_50px_rgba(0,0,0,0.5)] !border-white/30 !bg-white/[0.06]" : ""
           }`}
           style={{ 
@@ -73,9 +73,9 @@ const NavBar = () => {
             height: "84px"
           }}
         >
-          {/* Avatar & Name (Col 1-4) */}
-          <div className="flex items-center gap-4 h-full lg:col-span-4">
-            <div className="w-[60px] h-[60px] rounded-full overflow-hidden border border-white/10 shadow-lg">
+          {/* Avatar & Name */}
+          <div className="flex items-center gap-4 h-full">
+            <div className="w-[60px] h-[60px] rounded-full overflow-hidden border border-white/10 shadow-lg shrink-0">
               <img 
                 src={images.hero} 
                 alt="avatar"
@@ -90,8 +90,8 @@ const NavBar = () => {
             </div>
           </div>
 
-          {/* Navigation Links (Col 5-10) - Aligning with introduction section */}
-          <div className="hidden lg:block lg:col-span-6 lg:pl-[120px]">
+          {/* Navigation Links - Aligning with introduction section */}
+          <div className="hidden lg:block lg:pl-10">
             <ul className="flex items-center gap-10">
               {navLinks.map((link) => (
                 <li key={link.name}>
@@ -101,18 +101,18 @@ const NavBar = () => {
             </ul>
           </div>
 
-          {/* Action Button & Mobile Toggle (Col 11-12) */}
-          <div className="flex items-center justify-end gap-4 lg:col-span-2">
+          {/* Action Button & Mobile Toggle */}
+          <div className="flex items-center justify-end gap-3 sm:gap-4">
             <RouterLink 
               to="/contact" 
               onClick={() => trackEvent("cta_click", { cta_name: "hire_me_navbar" })}
-              className="bg-[var(--accent)] hover:bg-[#00d084] text-black font-bold py-2.5 px-8 rounded-full transition-all duration-300 text-[15px] shadow-[0_10px_20px_rgba(0,255,153,0.2)]"
+              className="bg-[var(--accent)] hover:bg-[#00d084] text-black font-bold py-2.5 px-6 sm:px-8 rounded-full transition-all duration-300 text-sm sm:text-[15px] shadow-[0_10px_20px_rgba(0,255,153,0.2)] shrink-0"
             >
               Hire Me
             </RouterLink>
             
             <button
-              className="lg:hidden p-2 text-white"
+              className="lg:hidden p-2 text-white shrink-0"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -130,7 +130,7 @@ const NavBar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed top-[110px] left-5 right-5 z-[110] liquid-glass p-8 rounded-[2rem] shadow-2xl lg:hidden"
+            className="fixed top-[115px] lg:top-[135px] left-5 right-5 z-[110] liquid-glass p-8 rounded-[2rem] shadow-2xl lg:hidden"
           >
             <ul className="flex flex-col gap-6 text-center">
               {navLinks.map((link) => (

@@ -75,12 +75,11 @@ const ProjectDetails = () => {
         {/* Content Section */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
           
-          {/* Main Column (Left) */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-8 space-y-[60px]"
+            className="lg:col-span-8 space-y-[40px] md:space-y-[60px]"
           >
             {/* Overview */}
             <div>
@@ -100,8 +99,8 @@ const ProjectDetails = () => {
                   const detail = colonIdx > 0 ? feature.slice(colonIdx + 1).trim() : "";
                   return (
                     <div key={i} className="flex flex-col group">
-                      <div className="flex items-center gap-3 mb-1">
-                        <svg className="w-5 h-5 text-[var(--accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <div className="flex items-start gap-3 mb-1">
+                        <svg className="w-5 h-5 text-[var(--accent)] shrink-0 mt-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                         </svg>
                         <h4 className="text-xl font-bold text-[var(--text)]">{title}</h4>
