@@ -44,128 +44,89 @@ const ProjectDetails = () => {
         </section>
 
         {/* Hero Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="kicker">
-              <span className="kicker-dot" />
-              <span className="kicker-text">{project.category}</span>
-            </div>
-            <h1 className="text-3xl md:text-[44px] font-bold text-[var(--text)] mb-8 tracking-tight leading-tight">
-              {project.title}
-            </h1>
-
-            {project.companyProject && (
-              <div className="inline-flex items-center gap-2.5 px-4 py-2.5 rounded-2xl bg-white/[0.04] border border-white/5 text-xs font-semibold text-[var(--text-muted)] mb-8">
-                <svg className="w-4 h-4 text-[var(--accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                <span>Developed professionally at <strong>{project.companyName}</strong></span>
-              </div>
-            )}
-
-            <p className="text-[var(--text-muted)] text-base md:text-lg leading-relaxed mb-10">
-              {project.longDescription}
-            </p>
-
-            <div className="flex flex-wrap gap-4 mb-12">
-              {project.technologies.split(',').map((tech, i) => (
-                <span key={i} className="px-5 py-2 rounded-full bg-[var(--card)] border border-white/10 text-sm font-bold tracking-wider uppercase text-[var(--accent)]">
-                  {tech.trim()}
-                </span>
-              ))}
-            </div>
-
-            <div className="flex flex-wrap gap-4">
-              {project.liveLink ? (
-                <a
-                  href={project.liveLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary inline-flex items-center gap-3 !px-10"
-                >
-                  <span>{project.liveLink.includes("play.google.com") ? "View on Play Store" : "Visit Website"}</span>
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                </a>
-              ) : null}
-              <Link
-                to="/contact"
-                className={
-                  project.liveLink
-                    ? "inline-flex items-center gap-3 !px-10 py-3 rounded-xl font-bold border border-white/15 text-[var(--text)] hover:border-[var(--accent)]/50 hover:text-[var(--accent)] transition-colors"
-                    : "btn-primary inline-flex items-center gap-3 !px-10"
-                }
-              >
-                Discuss this project
-              </Link>
-            </div>
-          </motion.div>
-
-          <motion.div
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-[45px]"
+        >
+          <div className="kicker mb-6">
+            <span className="kicker-dot" />
+            <span className="kicker-text">{project.category}</span>
+          </div>
+          <h1 className="text-4xl md:text-[56px] font-bold text-[var(--text)] mb-10 tracking-tight leading-tight max-w-5xl">
+            {project.title}
+          </h1>
+          <motion.div 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative"
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="relative w-full aspect-video md:aspect-[21/9] rounded-[2.5rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10"
           >
-            <div className="liquid-glass p-2 overflow-hidden rounded-[2.5rem] aspect-[4/3] shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-              <img 
-                src={project.image} 
-                alt={project.title}
-                className="w-full h-full object-cover rounded-[2rem]"
-              />
-            </div>
-            {/* Abstract Decorative Elements */}
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-[var(--accent)]/10 blur-[80px] rounded-full" />
-            <div className="absolute -bottom-10 -left-10 w-60 h-60 bg-[var(--accent)]/5 blur-[100px] rounded-full" />
+            <img 
+              src={project.image} 
+              alt={project.title}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
           </motion.div>
-        </div>
+        </motion.div>
 
-        {/* Features & Details */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 pt-[125px]">
+        {/* Content Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+          
+          {/* Main Column (Left) */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="lg:col-span-8"
+            className="lg:col-span-8 space-y-[60px]"
           >
-            <h2 className="text-3xl font-bold mb-10 text-[var(--text)]">Key Features</h2>
-            <div className="space-y-6">
-              {project.features.map((feature, i) => {
-                const colonIdx = feature.indexOf(":");
-                const title = colonIdx > 0 ? feature.slice(0, colonIdx).trim() : feature.trim();
-                const detail = colonIdx > 0 ? feature.slice(colonIdx + 1).trim() : "";
-                return (
-                  <div
-                    key={i}
-                    className="flex items-start gap-5 p-6 rounded-3xl liquid-glass hover:bg-white/[0.05] transition-colors group"
-                  >
-                    <div className="w-12 h-12 rounded-2xl bg-[var(--accent)]/10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
-                      <svg className="w-6 h-6 text-[var(--accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
+            {/* Overview */}
+            <div>
+              <h2 className="text-3xl font-bold mb-6 text-[var(--text)]">Overview</h2>
+              <div className="text-[var(--text-muted)] text-lg leading-relaxed font-medium">
+                <p>{project.longDescription}</p>
+              </div>
+            </div>
+
+            {/* Key Features */}
+            <div>
+              <h2 className="text-3xl font-bold mb-8 text-[var(--text)]">Key Features</h2>
+              <div className="flex flex-col gap-6">
+                {project.features.map((feature, i) => {
+                  const colonIdx = feature.indexOf(":");
+                  const title = colonIdx > 0 ? feature.slice(0, colonIdx).trim() : feature.trim();
+                  const detail = colonIdx > 0 ? feature.slice(colonIdx + 1).trim() : "";
+                  return (
+                    <div key={i} className="flex flex-col group">
+                      <div className="flex items-center gap-3 mb-1">
+                        <svg className="w-5 h-5 text-[var(--accent)]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <h4 className="text-xl font-bold text-[var(--text)]">{title}</h4>
+                      </div>
+                      {detail && (
+                        <p className="text-[var(--text-muted)] text-base md:text-lg leading-relaxed pl-8">
+                          {detail}
+                        </p>
+                      )}
                     </div>
-                    <div>
-                      <h4 className="text-lg font-bold text-[var(--text)] mb-2">{title}</h4>
-                      {detail ? (
-                        <p className="text-[var(--text-muted)] leading-relaxed">{detail}</p>
-                      ) : null}
-                    </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Result & Impact */}
+            <div>
+              <h2 className="text-3xl font-bold mb-6 text-[var(--text)]">Result & Impact</h2>
+              <div className="flex flex-col gap-4 text-[var(--text-muted)] text-base md:text-lg leading-relaxed pl-6 border-l-4 border-[var(--accent)]/50 bg-white/[0.02] p-6 rounded-r-2xl">
+                <p>{project.resultAndImpact}</p>
+              </div>
             </div>
           </motion.div>
 
+          {/* Sidebar (Right) */}
           <motion.div 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -173,30 +134,65 @@ const ProjectDetails = () => {
             transition={{ delay: 0.2 }}
             className="lg:col-span-4"
           >
-            <div className="sticky top-[125px] p-10 rounded-[2.5rem] liquid-glass">
-              <h3 className="text-2xl font-bold mb-8 text-[var(--text)]">Project Info</h3>
-              <div className="space-y-6">
-                <div>
-                  <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--text-muted)] mb-1">Category</span>
-                  <span className="text-lg font-medium text-[var(--text)]">{project.category}</span>
-                </div>
-                <div className="h-px bg-white/5" />
-                <div>
-                  <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--text-muted)] mb-1">Tools & Tech</span>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {project.technologies.split(',').map((tech, i) => (
-                      <span key={i} className="text-xs font-bold text-[var(--text)] py-1.5 px-3 rounded-lg bg-white/5">
-                        {tech.trim()}
-                      </span>
-                    ))}
+            <div className="sticky top-[125px] flex flex-col gap-8">
+              
+              {/* Project Info Card */}
+              <div className="pt-8 pb-8 px-[5%] rounded-[2rem] liquid-glass border border-white/5 text-center flex flex-col items-center">
+                <h3 className="text-2xl font-bold mb-6 text-[var(--text)]">Project Info</h3>
+                <div className="space-y-6 w-full flex flex-col items-center">
+                  <div className="w-full">
+                    <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--text-muted)] mb-2">Project Name</span>
+                    <span className="text-base font-medium text-[var(--text)]">{project.title}</span>
+                  </div>
+                  <div className="w-full h-px bg-white/5" />
+                  
+                  <div className="w-full">
+                    <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--text-muted)] mb-2">Category</span>
+                    <span className="text-base font-medium text-[var(--text)]">{project.category}</span>
+                  </div>
+                  <div className="w-full h-px bg-white/5" />
+                  
+                  {project.liveLink && (
+                    <>
+                      <div className="w-full">
+                        <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--text-muted)] mb-2">Live Link</span>
+                        <a 
+                          href={project.liveLink} 
+                          target="_blank" 
+                          rel="noopener noreferrer" 
+                          className="text-base font-medium text-[var(--accent)] hover:underline break-all"
+                        >
+                          {project.liveLink.replace(/^https?:\/\//, '')}
+                        </a>
+                      </div>
+                      <div className="w-full h-px bg-white/5" />
+                    </>
+                  )}
+
+                  <div className="pt-2 w-full flex justify-center">
+                    <Link 
+                      to="/contact" 
+                      className="inline-flex justify-center px-8 py-3 rounded-full bg-[var(--accent)] text-black font-bold hover:scale-105 hover:shadow-[0_0_20px_var(--accent-glow)] transition-all"
+                    >
+                      Contact Us
+                    </Link>
                   </div>
                 </div>
-                <div className="h-px bg-white/5" />
-                <div>
-                  <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--text-muted)] mb-1">Client Location</span>
-                  <span className="text-lg font-medium text-[var(--text)]">India / Remote</span>
-                </div>
               </div>
+
+              {/* Tech Stack Card */}
+              <div className="pt-6 pb-6 px-[5%] rounded-[2rem] liquid-glass border border-white/5">
+                <h3 className="text-2xl font-bold mb-6 text-[var(--text)] text-center">Tech Stack</h3>
+                <ul className="flex flex-col gap-3">
+                  {project.technologies.split(',').map((tech, i) => (
+                    <li key={i} className="flex items-center gap-3">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] shrink-0" />
+                      <span className="text-base font-medium text-[var(--text)]">{tech.trim()}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
             </div>
           </motion.div>
         </div>

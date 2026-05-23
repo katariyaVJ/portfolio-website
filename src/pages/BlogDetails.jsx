@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { blogSection } from "../data/portfolio";
+import fallbackImg from "../assets/images/blog/blog-2.jpg";
 
 const BlogDetails = () => {
   const { slug } = useParams();
@@ -26,8 +27,11 @@ const BlogDetails = () => {
 
   return (
     <main className="relative min-h-screen overflow-x-clip pb-24">
-      <div className="content-container">
-        <section>
+      {/* max-w-4xl for single column reading layout */}
+      <div className="content-container max-w-4xl mx-auto">
+        
+        {/* Navigation Back */}
+        <section className="!pt-8">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -42,71 +46,153 @@ const BlogDetails = () => {
           </motion.div>
         </section>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-          <motion.article
+        <article className="pb-16">
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="lg:col-span-8"
           >
             <div className="kicker mb-6">
               <span className="kicker-dot" />
-              <span className="kicker-text">Blog</span>
+              <span className="kicker-text">{blog.category ?? "Article"}</span>
             </div>
 
-            <h1 className="text-3xl md:text-[44px] font-bold text-[var(--text)] mb-8 tracking-tight leading-tight">
+            <h1 className="text-3xl md:text-[56px] font-bold text-[var(--text)] mb-8 tracking-tight leading-tight">
               {blog.title}
             </h1>
 
-            <div className="relative overflow-hidden rounded-[2.5rem] mb-10 liquid-glass p-2 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
-              <img
-                src={blog.image}
-                alt={blog.title}
-                className="w-full h-full object-cover rounded-[2rem]"
-              />
+            {/* Meta Info Row */}
+            <div className="flex flex-wrap items-center gap-4 text-[var(--text-muted)] text-base mb-10 border-b border-white/10 pb-8">
+              <span>Published: {blog.date}</span>
+              <span className="hidden sm:inline">•</span>
+              <span>{blog.comments ?? 0} Comments</span>
+              <span className="hidden sm:inline">•</span>
+              <span>Category: {blog.category}</span>
             </div>
+          </motion.div>
 
-            <div className="space-y-6 text-[var(--text-muted)] text-base md:text-lg leading-relaxed">
-              {(blog.bodyParagraphs?.length
-                ? blog.bodyParagraphs
-                : [
-                    "This article covers practical implementation ideas for the topic, with a focus on maintainable architecture and real device performance.",
-                    "If you want this adapted to your product, get in touch and we can outline a concrete roadmap.",
-                  ]
-              ).map((para, idx) => (
-                <p key={idx}>{para}</p>
-              ))}
-            </div>
-          </motion.article>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="mb-16"
+          >
+            {/* Image 1 (Hero) */}
+            <img
+              src={blog.image}
+              alt={blog.title}
+              className="w-full aspect-video md:aspect-[21/9] object-cover rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10"
+            />
+          </motion.div>
 
-          <motion.aside
+          {/* Content Sections One by One */}
+          <motion.div 
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="lg:col-span-4"
+            className="space-y-16 text-[var(--text-muted)] text-lg md:text-xl leading-relaxed font-medium"
           >
-            <div className="sticky top-[125px] p-10 rounded-[2.5rem] liquid-glass">
-              <h3 className="text-2xl font-bold mb-8 text-[var(--text)]">Article Info</h3>
-              <div className="space-y-6">
+            {blog.sections ? (
+              blog.sections.map((section, idx) => {
+                if (section.type === "paragraph") {
+                  return (
+                    <div key={idx}>
+                      {section.heading && <h2 className="text-3xl font-bold text-[var(--text)] mb-6">{section.heading}</h2>}
+                      <div className="space-y-6">
+                        {Array.isArray(section.content) ? (
+                          section.content.map((p, pIdx) => <p key={pIdx}>{p}</p>)
+                        ) : (
+                          <p>{section.content}</p>
+                        )}
+                      </div>
+                    </div>
+                  );
+                } else if (section.type === "list") {
+                  return (
+                    <div key={idx}>
+                      {section.heading && <h2 className="text-3xl font-bold text-[var(--text)] mb-6">{section.heading}</h2>}
+                      <ul className={section.listType === "decimal" ? "list-decimal pl-6 space-y-4 mb-6" : "list-disc pl-6 space-y-4 mb-6"}>
+                        {section.items.map((item, itemIdx) => (
+                          <li key={itemIdx}>
+                            {item.title && <strong className="text-[var(--text)]">{item.title}: </strong>}
+                            <span>{item.detail}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  );
+                } else if (section.type === "image") {
+                  return (
+                    <div key={idx} className="py-8">
+                      <img
+                        src={section.url}
+                        alt={section.alt || "Visualization"}
+                        className="w-full aspect-video md:aspect-[16/9] object-cover rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/5"
+                      />
+                    </div>
+                  );
+                }
+                return null;
+              })
+            ) : (
+              <>
+                {/* Fallback old hardcoded rendering if sections doesn't exist */}
+                {/* Introduction */}
                 <div>
-                  <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--text-muted)] mb-1">Published</span>
-                  <span className="text-lg font-medium text-[var(--text)]">{blog.date}</span>
+                  <h2 className="text-3xl font-bold text-[var(--text)] mb-6">Introduction</h2>
+                  <p>
+                    {blog.bodyParagraphs?.[0] || "This article covers practical implementation ideas for the topic, with a focus on maintainable architecture and real device performance. When building scalable solutions, starting with a clear understanding of the goals is crucial."}
+                  </p>
                 </div>
-                <div className="h-px bg-white/5" />
+
+                {/* Problem */}
                 <div>
-                  <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--text-muted)] mb-1">Comments</span>
-                  <span className="text-lg font-medium text-[var(--text)]">{blog.comments ?? 0}</span>
+                  <h2 className="text-3xl font-bold text-[var(--text)] mb-6">The Problem</h2>
+                  <p>
+                    {blog.bodyParagraphs?.[1] || "Without proper structure, systems tend to become unmaintainable over time. Common issues include tight coupling, lack of clear documentation, and poor scalability which drastically affects performance under load. This creates immense technical debt that slows down future feature delivery."}
+                  </p>
                 </div>
-                <div className="h-px bg-white/5" />
+
+                {/* Solution */}
                 <div>
-                  <span className="block text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--text-muted)] mb-1">Category</span>
-                  <span className="text-lg font-medium text-[var(--text)]">{blog.category ?? "Mobile Development"}</span>
+                  <h2 className="text-3xl font-bold text-[var(--text)] mb-6">The Solution</h2>
+                  <p>
+                    {blog.bodyParagraphs?.[2] || "By implementing robust architectural patterns, we can decouple components and ensure seamless updates. Proper integration tests and a dedicated client layer keep the frontend clean and isolated from backend API changes. We established strict guidelines and automated pipelines to ensure code quality."}
+                  </p>
                 </div>
-              </div>
-            </div>
-          </motion.aside>
-        </div>
+
+                {/* Image 2 (Secondary) */}
+                <div className="py-8">
+                  <img
+                    src={blog.image2 || blog.image}
+                    alt="Secondary visualization"
+                    className="w-full aspect-video md:aspect-[16/9] object-cover rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/5"
+                  />
+                </div>
+
+                {/* Benefits */}
+                <div>
+                  <h2 className="text-3xl font-bold text-[var(--text)] mb-6">Key Benefits</h2>
+                  <ul className="list-disc pl-6 space-y-4 mb-6">
+                    <li><strong>Maintainability:</strong> Improved code structure making future updates effortless.</li>
+                    <li><strong>Performance:</strong> Better optimization and significantly reduced load times.</li>
+                    <li><strong>Scalability:</strong> Seamless ability to accommodate future product roadmaps and traffic spikes.</li>
+                    <li><strong>Security:</strong> Enhanced predictability and security across the entire stack.</li>
+                  </ul>
+                  {blog.bodyParagraphs?.[3] && <p>{blog.bodyParagraphs[3]}</p>}
+                </div>
+
+                {/* Final Thoughts */}
+                <div>
+                  <h2 className="text-3xl font-bold text-[var(--text)] mb-6">Final Thoughts</h2>
+                  <p>
+                    {blog.bodyParagraphs?.[4] || "Ultimately, taking the time to architect your approach pays massive dividends as your user base grows. Proper planning eliminates tech debt before it even occurs. If you want this adapted to your product, get in touch and we can outline a concrete roadmap."}
+                  </p>
+                </div>
+              </>
+            )}
+          </motion.div>
+        </article>
       </div>
     </main>
   );

@@ -4,7 +4,7 @@ import MonoBlog from "./MonoBlog";
 import { blogSection } from "../../data/portfolio";
 
 const Blog = ({ hideHeader = false }) => {
-  const preview = blogSection.posts.slice(0, blogSection.previewCount ?? 2);
+  const preview = blogSection.posts.slice(0, blogSection.previewCount ?? 3);
 
   return (
     <>
@@ -39,7 +39,7 @@ const Blog = ({ hideHeader = false }) => {
         </motion.div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
         {preview.map((data, index) => (
           <motion.div
             key={data.id ?? index}
@@ -47,6 +47,7 @@ const Blog = ({ hideHeader = false }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.6 }}
+            className="h-full"
           >
             <MonoBlog data={data} />
           </motion.div>
