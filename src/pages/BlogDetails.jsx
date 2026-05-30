@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import { blogSection } from "../data/portfolio";
 import fallbackImg from "../assets/images/blog/blog-2.jpg";
 
@@ -17,7 +18,7 @@ const BlogDetails = () => {
       <main className="relative min-h-screen overflow-x-clip pt-[125px] pb-24 flex items-center justify-center">
         <div className="text-center px-4">
           <h2 className="text-4xl font-bold mb-4">Blog Not Found</h2>
-          <Link to="/blogs" className="btn-primary">
+          <Link to="/blogs" className="btn-premium">
             Back to Blogs
           </Link>
         </div>
@@ -27,6 +28,10 @@ const BlogDetails = () => {
 
   return (
     <main className="relative min-h-screen overflow-x-clip pb-24">
+      <Helmet>
+        <title>{blog.title} | Vijay Katariya's Blog</title>
+        <meta name="description" content={blog.description} />
+      </Helmet>
       {/* max-w-4xl for single column reading layout */}
       <div className="content-container max-w-4xl mx-auto">
         
@@ -81,6 +86,8 @@ const BlogDetails = () => {
             <img
               src={blog.image}
               alt={blog.title}
+              loading="lazy"
+              decoding="async"
               className="w-full aspect-video md:aspect-[21/9] object-cover rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] border border-white/10"
             />
           </motion.div>
@@ -127,6 +134,8 @@ const BlogDetails = () => {
                       <img
                         src={section.url}
                         alt={section.alt || "Visualization"}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full aspect-video md:aspect-[16/9] object-cover rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/5"
                       />
                     </div>
@@ -166,6 +175,8 @@ const BlogDetails = () => {
                   <img
                     src={blog.image2 || blog.image}
                     alt="Secondary visualization"
+                    loading="lazy"
+                    decoding="async"
                     className="w-full aspect-video md:aspect-[16/9] object-cover rounded-[2rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border border-white/5"
                   />
                 </div>

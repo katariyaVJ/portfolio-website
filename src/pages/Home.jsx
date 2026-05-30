@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import Profile from "../components/profile/Profile";
 import Introduction from "../components/introduction/Introduction";
 import Portfolio from "../components/portfolio/Portfolio";

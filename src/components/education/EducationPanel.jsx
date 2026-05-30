@@ -10,9 +10,9 @@ const EducationPanel = () => {
           <span className="kicker-dot" />
           <span className="kicker-text">Resume</span>
         </div>
-        <h3 className="text-3xl md:text-[44px] font-bold text-white tracking-tight">
-          Education & Experience
-        </h3>
+        <h2 className="text-3xl md:text-[44px] font-bold text-white tracking-tight">
+          {educationSection.title}
+        </h2>
       </div>
       
       <div className="space-y-0 relative border-l border-white/5 ml-4">

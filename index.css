@@ -151,8 +151,8 @@ h6 {
 .premium-card:hover {
   border-color: var(--border-hover);
   background-color: var(--card-hover);
-  transform: translateY(-8px);
-  box-shadow: 0 30px 60px -15px var(--accent-glow);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px -10px var(--accent-glow);
 }
 
 .cyber-grid-bg {

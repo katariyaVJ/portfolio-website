@@ -79,6 +79,8 @@ const NavBar = () => {
               <img 
                 src={images.hero} 
                 alt="avatar"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -106,7 +108,7 @@ const NavBar = () => {
             <RouterLink 
               to="/contact" 
               onClick={() => trackEvent("cta_click", { cta_name: "hire_me_navbar" })}
-              className="bg-[var(--accent)] hover:bg-[#00d084] text-black font-bold py-2.5 px-6 sm:px-8 rounded-full transition-all duration-300 text-sm sm:text-[15px] shadow-[0_10px_20px_rgba(0,255,153,0.2)] shrink-0"
+              className="btn-premium !py-2.5 !px-6 sm:!px-8 !text-sm sm:!text-[15px] shrink-0"
             >
               Hire Me
             </RouterLink>

@@ -5,7 +5,12 @@ import { portfolioSection } from "../data/portfolio";
 
 const ProjectDetails = () => {
   const { id } = useParams();
-  const project = portfolioSection.projects.find((p) => p.id === id);
+  const currentIndex = portfolioSection.projects.findIndex((p) => p.id === id);
+  const project = portfolioSection.projects[currentIndex];
+
+  const nextProject = currentIndex !== -1 
+    ? portfolioSection.projects[(currentIndex + 1) % portfolioSection.projects.length]
+    : null;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -16,7 +21,7 @@ const ProjectDetails = () => {
       <main className="relative min-h-screen overflow-x-clip pt-[125px] pb-24 flex items-center justify-center">
         <div className="text-center px-4">
           <h2 className="text-4xl font-bold mb-4">Project Not Found</h2>
-          <Link to="/projects" className="btn-primary">
+          <Link to="/projects" className="btn-premium">
             Back to Projects
           </Link>
         </div>
@@ -65,7 +70,9 @@ const ProjectDetails = () => {
           >
             <img 
               src={project.image} 
-              alt={project.title}
+              alt={project.imageAlt || project.title}
+              loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
@@ -81,13 +88,26 @@ const ProjectDetails = () => {
             viewport={{ once: true }}
             className="lg:col-span-8 space-y-[40px] md:space-y-[60px]"
           >
-            {/* Overview */}
-            <div>
-              <h2 className="text-3xl font-bold mb-6 text-[var(--text)]">Overview</h2>
-              <div className="text-[var(--text-muted)] text-lg leading-relaxed font-medium">
-                <p>{project.longDescription}</p>
+            {/* Storytelling Context */}
+            {project.problem ? (
+              <div className="space-y-10">
+                <div>
+                  <h3 className="text-2xl font-bold mb-4 text-[var(--text)]">The Problem</h3>
+                  <p className="text-[var(--text-muted)] text-lg leading-relaxed font-medium">{project.problem}</p>
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold mb-4 text-[var(--text)]">Process & Solution</h3>
+                  <p className="text-[var(--text-muted)] text-lg leading-relaxed font-medium">{project.solution}</p>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div>
+                <h2 className="text-3xl font-bold mb-6 text-[var(--text)]">Overview</h2>
+                <div className="text-[var(--text-muted)] text-lg leading-relaxed font-medium">
+                  <p>{project.longDescription}</p>
+                </div>
+              </div>
+            )}
 
             {/* Key Features */}
             <div>
@@ -120,7 +140,7 @@ const ProjectDetails = () => {
             <div>
               <h2 className="text-3xl font-bold mb-6 text-[var(--text)]">Result & Impact</h2>
               <div className="flex flex-col gap-4 text-[var(--text-muted)] text-base md:text-lg leading-relaxed pl-6 border-l-4 border-[var(--accent)]/50 bg-white/[0.02] p-6 rounded-r-2xl">
-                <p>{project.resultAndImpact}</p>
+                <p>{project.outcome || project.resultAndImpact}</p>
               </div>
             </div>
           </motion.div>
@@ -196,6 +216,30 @@ const ProjectDetails = () => {
           </motion.div>
         </div>
       </div>
+
+      {/* Next Case Study (Internal Linking Flow) */}
+      {nextProject && (
+        <div className="content-container mt-24 pt-12 border-t border-white/10">
+          <div className="flex flex-col items-center text-center">
+            <span className="kicker-text mb-4 uppercase tracking-[0.2em] text-[var(--text-muted)] font-bold text-sm">Up Next</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 text-[var(--text)]">{nextProject.title}</h2>
+            <Link 
+              to={nextProject.link} 
+              className="group relative overflow-hidden aspect-[21/9] w-full max-w-4xl rounded-[2rem] border border-white/10 shadow-2xl"
+            >
+              <img 
+                src={nextProject.image} 
+                alt={nextProject.imageAlt || nextProject.title}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-black/60 transition-opacity duration-500 group-hover:opacity-40" />
+              <div className="absolute inset-0 flex items-center justify-center">
+                <span className="btn-premium backdrop-blur-md bg-white/10 border-white/20 shadow-none">View Case Study</span>
+              </div>
+            </Link>
+          </div>
+        </div>
+      )}
     </main>
   );
 };

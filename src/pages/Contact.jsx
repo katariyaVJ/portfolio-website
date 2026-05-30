@@ -1,5 +1,6 @@
 import ContactSection from "../components/newsletter/Newsletter";
 import { motion } from "framer-motion";
+import { introduction, site } from "../data/portfolio";
 
 const Contact = () => {
   return (

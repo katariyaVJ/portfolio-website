@@ -49,7 +49,7 @@ const Introduction = () => {
           </div>
         </div>
 
-        <h1 className="text-[clamp(2rem,8vw,5rem)] xl:text-[80px] font-black text-white mb-4 sm:mb-6 leading-[1.05] sm:leading-[0.95] tracking-tighter">
+        <h1 className="text-[clamp(1.5rem,6vw,4rem)] xl:text-[60px] font-black text-white mb-4 sm:mb-6 leading-[1.05] sm:leading-[0.95] tracking-tighter">
           {heroSection.headline.split(' ').map((word, i, arr) => (
             <span key={i}>
               {word}

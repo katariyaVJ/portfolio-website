@@ -20,7 +20,7 @@ const Profile = () => {
           </div>
 
           <div className="info w-full min-w-0">
-            <h2 className="hero-profile-name font-bold text-white mb-3 sm:mb-4 tracking-tight px-1">
+            <h2 className="hero-profile-name text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-3 sm:mb-4 tracking-tight px-1">
               {introduction.name}
             </h2>
             <p className="hero-profile-subtitle font-bold uppercase text-[var(--accent)] mb-6 sm:mb-8 px-1">

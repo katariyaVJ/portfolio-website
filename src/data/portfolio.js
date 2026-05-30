@@ -38,11 +38,11 @@ export const heroSection = {
   aboutLabel: "About",
   helloPrefix: "Hello! I'm",
   rotatingRoles: ["Mobile App Developer", "Web Developer", "Flutter Developer", "API Integration Specialist"],
-  headline: "Empowering Mobile & Web Excellence",
+  headline: "Vijay Katariya – Mobile Application & Web Developer",
   cardTagline: "MOBILE APP & WEB DEVELOPER",
   bioParagraphsMd: [
-    "I'm a **Mobile App Developer** at **Brainfleck Solution** in Surat, and an independent **Web Developer**. I specialize in **Flutter** for **Android & iOS** as well as modern **web technologies** like **React**. I hold an **MCA from Parul University** and a **BCA from MKBU**, giving me a solid foundation in software architecture and **REST API integration**.",
-    "From concept to deployment, I focus on delivering **smooth UI/UX**, scalable **Firebase** backends, and clean code to turn product ideas into high-performance digital solutions across mobile and web platforms."
+    "Welcome to my **mobile app developer portfolio**. I'm a **Mobile App Developer** at **Brainfleck Solution** in Surat, and an independent **Web Developer**. I specialize in **Flutter** for **Android & iOS** as well as modern **web technologies** like **React** and **Next.js**. Operating as a dedicated **React developer India**, I hold an **MCA from Parul University** and a **BCA from MKBU**, giving me a solid foundation in software architecture and **REST API integration**.",
+    "From concept to deployment, I focus on delivering **smooth UI/UX**, scalable **Firebase** backends, and clean code to turn product ideas into high-performance digital solutions across mobile and web platforms. Explore my **Next.js portfolio** projects below to see my work in action."
   ],
 };
 
@@ -116,9 +116,13 @@ export const portfolioSection = {
     {
       id: "ecommerce-platform",
       image: "/ecommerce.png",
+      imageAlt: "Full-Stack E-Commerce Platform Dashboard showing product listings and sales analytics",
       category: "WEBSITE / E-COMMERCE",
       title: "Full-Stack E-Commerce Platform",
       description: "A comprehensive e-commerce solution built with a responsive React frontend, powerful Laravel API backend, and a complete admin panel.",
+      problem: "The client was struggling with a legacy, monolithic application that resulted in 4s+ page load times, a highly disjointed mobile experience, and frequent server crashes during peak holiday sales. Cart abandonment was at an all-time high due to poor UI/UX.",
+      solution: "I re-architected the entire storefront using React, replacing the slow backend calls with an optimized Laravel REST API. I implemented robust state management to make cart operations instantaneous, built a completely responsive mobile layout, and integrated JWT authentication for secure, seamless checkout.",
+      outcome: "Since its deployment, the optimized React frontend reduced average page load times by 65%, completely eliminating server crashes during high traffic. This fluid UX led to a direct 40% increase in conversion rates, transforming the client's core retail operations.",
       longDescription: "This full-stack e-commerce platform was meticulously engineered to deliver a highly engaging and seamless shopping experience for modern consumers, while simultaneously providing robust, scalable management tools for administrators. The frontend architecture is entirely powered by React, utilizing the latest hooks and state management libraries to ensure lightning-fast page loads, highly dynamic cart management, and fluid, secure checkout flows that significantly reduce cart abandonment rates.\n\nOn the server side, the backend runs on a highly optimized Laravel API, expertly handling secure token-based authentication, massive real-time product data pipelines, and intelligent order tracking mechanisms. The architecture strictly adheres to REST principles, ensuring that data synchronization between the user-facing storefront and the backend databases happens almost instantly. A dedicated, role-based admin dashboard empowers store owners to intuitively manage thousands of SKUs, monitor daily sales funnels, and generate real-time business analytics without needing deep technical knowledge.",
       resultAndImpact: "Since its deployment, the platform has managed thousands of transactions seamlessly without any downtime, completely transforming the client's retail operations. The optimized React frontend reduced average page load times by 65%, leading to a direct 40% increase in conversion rates during peak traffic periods. By utilizing modern architecture and rigorous best practices, the solution currently scales effortlessly to accommodate seasonal spikes in traffic, ultimately fulfilling all core business objectives with exceptional reliability.",
       technologies: "React, Laravel API, REST APIs, Vanilla CSS, Vite, Framer Motion, JWT Auth",
@@ -130,13 +134,14 @@ export const portfolioSection = {
         "Responsive UI/UX: Pixel-perfect optimization across mobile, tablet, and desktop viewports, ensuring a seamless shopping journey regardless of the device.",
         "Real-time Inventory Sync: Automated stock level updates that instantly prevent overselling and maintain accurate availability metrics."
       ],
-      link: "/project/ecommerce-platform",
+      link: "/case-study/ecommerce-platform",
       liveLink: "",
       companyProject: false,
     },
     {
       id: "export-website",
       image: "/export.png",
+      imageAlt: "Krushnkrupa Exporters B2B Portal homepage showing global trading services",
       category: "WEBSITE / B2B EXPORT",
       title: "Krushnkrupa Exporters: B2B Portal",
       description: "A professional B2B export-import business website designed to showcase global trading services and product catalogs.",
@@ -151,16 +156,20 @@ export const portfolioSection = {
         "Fully Responsive Ecosystem: Fluid, adaptable layouts guaranteeing perfect display fidelity on smartphones, tablets, and massive desktop monitors.",
         "High-Speed Asset Delivery: Advanced image compression and code-splitting techniques ensuring lightning-fast load times across global networks."
       ],
-      link: "/project/export-website",
+      link: "/case-study/export-website",
       liveLink: "",
       companyProject: false,
     },
     {
       id: "hk-infotech",
       image: "/infotech.png",
+      imageAlt: "HK Infotech Digital Agency Website featuring modern UI/UX design services",
       category: "WEBSITE / DIGITAL AGENCY",
       title: "HK Infotech: Digital Agency Website",
       description: "A premium website for a modern digital agency offering high-performance web development, mobile app development, digital marketing, and SEO solutions.",
+      problem: "HK Infotech, a growing digital agency, was struggling to generate high-ticket leads organically. Their existing online presence lacked the premium aesthetic required to build trust with enterprise clients, and poor SEO architecture severely limited their search visibility.",
+      solution: "I architected a state-of-the-art platform using React and Framer Motion to deliver a highly interactive, premium user experience. I implemented advanced glassmorphism techniques, deeply optimized the semantic HTML for elite SEO performance, and engineered high-conversion client intake funnels.",
+      outcome: "Following the deployment, HK Infotech experienced a staggering 150% increase in client inquiries. The fluid animations and premium UI positioned the brand as a top-tier tech leader, instantly increasing conversion rates on high-ticket service packages while building a continuous stream of organic traffic.",
       longDescription: "HK Infotech represents the pinnacle of digital agency platforms, meticulously crafted to serve as a stunning, high-conversion showcase for full-stack digital services. The website brilliantly highlights the agency's vast expertise across custom web application development, bespoke mobile application design, aggressive digital marketing campaigns, and highly technical search engine optimization (SEO) strategies. Every pixel and line of code was engineered to deliver an elegant, premium aesthetic coupled with absolute peak performance, acting as the primary lead generation hub for modern business transformation.\n\nThe user interface is heavily driven by smooth motion design and micro-interactions powered by Framer Motion, instantly capturing user attention and dramatically reducing bounce rates. The platform employs advanced glassmorphism techniques and deep, rich color palettes to create a state-of-the-art visual experience. Under the hood, the site leverages a highly optimized React architecture, ensuring that the visually intense animations never compromise on critical rendering speeds or accessibility standards.",
       resultAndImpact: "Following the deployment of the new digital agency platform, HK Infotech experienced a staggering 150% increase in client inquiries and dramatically improved user engagement metrics. The implementation of fluid animations and a premium UI positioned the brand as a top-tier tech leader, instantly increasing their conversion rate on high-ticket service packages. The robust SEO foundation ensures a continuous, growing stream of organic traffic from highly qualified leads.",
       technologies: "React, Vanilla CSS, Vite, Framer Motion, Advanced SEO, Responsive Web Design",
@@ -172,13 +181,14 @@ export const portfolioSection = {
         "High-Conversion Contact Funnels: Strategically placed client intake systems and rapid quote estimators meticulously designed to maximize lead capture.",
         "Smooth Motion Design: Studio-quality custom transitions, scroll-linked animations, and micro-interactions powered exclusively by Framer Motion."
       ],
-      link: "/project/hk-infotech",
+      link: "/case-study/hk-infotech",
       liveLink: "https://hkinfotech.in",
       companyProject: false,
     },
     {
       id: "brainbite",
       image: "/brainbite.jpg",
+      imageAlt: "BrainBite AI Trivia Mobile App interface showing daily fun facts",
       category: "MOBILE APP / AI",
       title: "BrainBite: Daily Fun Facts & AI Trivia",
       description: "An AI-powered mobile app designed to make learning engaging and fun with personalized daily bite-sized facts and trivia.",
@@ -193,7 +203,7 @@ export const portfolioSection = {
         "Smart Daily Reminders: Deploys engaging, personalized push notifications designed specifically to build and maintain a strong daily learning habit.",
         "Immersive Audio & UI: Features sleek transitions, pristine card designs, and an immersive background sound mode for a complete sensory experience."
       ],
-      link: "/project/brainbite",
+      link: "/case-study/brainbite",
       liveLink: "https://play.google.com/store/apps/details?id=com.bfs.brainbite",
       companyProject: true,
       companyName: "Brainfleck Solution",
@@ -201,6 +211,7 @@ export const portfolioSection = {
     {
       id: "taxtracker",
       image: "/Save-Tax.jpg",
+      imageAlt: "TaxTracker Finance Mobile App interface showing expense and mileage tracking",
       category: "MOBILE APP / FINANCE",
       title: "TaxTracker: Expense & Mileage Tracker",
       description: "A smart finance and tax management mobile app designed for freelancers, self-employed professionals, and small businesses to log expenses and estimate deductions.",
@@ -215,7 +226,7 @@ export const portfolioSection = {
         "Comprehensive Analytics: Exports highly detailed, professional PDF and CSV reports designed specifically for tax advisors and rigorous bookkeeping.",
         "Cloud Sync & Offline Mode: Employs a highly robust real-time synchronization engine coupled with a flawless offline-first tracking architecture."
       ],
-      link: "/project/taxtracker",
+      link: "/case-study/taxtracker",
       liveLink: "https://play.google.com/store/apps/details?id=com.bfs.taxtracker",
       companyProject: true,
       companyName: "Brainfleck Solution",
@@ -223,6 +234,7 @@ export const portfolioSection = {
     {
       id: "plankworkout",
       image: "/plank.jpg",
+      imageAlt: "ProPlank AI Fitness App interface showing plank workout timer and posture detection",
       category: "MOBILE APP / FITNESS",
       title: "ProPlank: AI Plank Workout & Timer App",
       description: "An AI-powered fitness app designed to help users build core strength with posture detection, guided challenges, and gamified streak tracking.",
@@ -237,7 +249,7 @@ export const portfolioSection = {
         "Secure Cloud Synchronization: Offers robust, fully encrypted cloud storage support via seamless Google Drive backups for absolutely secure local data retention.",
         "Comprehensive Diet Support: Provides expertly tailored, highly structured nutritional guides specifically designed to complement and enhance your core fitness routines."
       ],
-      link: "/project/plankworkout",
+      link: "/case-study/plankworkout",
       liveLink: "https://play.google.com/store/apps/details?id=com.bfs.plankworkout.planktimer.fitnessapp.plankexercises",
       companyProject: true,
       companyName: "Brainfleck Solution",
@@ -245,6 +257,7 @@ export const portfolioSection = {
     {
       id: "gujarati-panchang",
       image: "/hindu-panchang.jpg",
+      imageAlt: "Panchang Guru Smart Gujarati Calendar App showing daily Choghadiya and Muhurat",
       category: "MOBILE APP / LIFESTYLE",
       title: "Panchang Guru: Smart Gujarati Calendar",
       description: "A beautifully designed Gujarati Panchang and Calendar app for 2025-2026 to track daily Choghadiya, auspicious Muhurat, and festivals.",
@@ -259,7 +272,7 @@ export const portfolioSection = {
         "Massive Spiritual Library: Acts as a comprehensive, handheld archive containing daily Aartis, highly revered spiritual Chalisa, Stuti, and deeply traditional Vrat Kathas.",
         "Zero-Latency Offline Mode: Built utilizing incredibly high-precision mathematical calculations coupled with a robust local database for complete, uninterrupted offline support."
       ],
-      link: "/project/gujarati-panchang",
+      link: "/case-study/gujarati-panchang",
       liveLink: "https://play.google.com/store/apps/details?id=com.bfs.panchangguru",
       companyProject: true,
       companyName: "Brainfleck Solution",

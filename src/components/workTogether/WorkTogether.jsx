@@ -21,7 +21,7 @@ const WorkTogether = () => {
         <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }} className="inline-block">
           <Link
             to={workTogether.ctaHref}
-            className="btn btn-primary inline-flex items-center gap-3 rounded-xl px-6 py-3 text-sm md:px-8 md:py-4 md:text-base"
+            className="btn-premium inline-flex items-center gap-3 !px-6 !py-3 text-sm md:!px-8 md:!py-4 md:text-base"
           >
             {workTogether.ctaLabel}
             <FontAwesomeIcon icon={faArrowRight} className="text-[#0a0a0a]" />

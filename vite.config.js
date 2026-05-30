@@ -5,7 +5,10 @@ import tailwindcss from "@tailwindcss/vite";
 // Root base URL for Vercel, Netlify, or any custom domain (not GitHub project subpaths).
 export default defineConfig({
   base: "/",
-  plugins: [react(), tailwindcss()],
+  plugins: [
+    react(), 
+    tailwindcss()
+  ],
   server: {
     open: true,
     host: false,

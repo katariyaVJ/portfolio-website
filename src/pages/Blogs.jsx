@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import Blog from "../components/blog/Blog";
-import MonoBlog from "../components/blog/MonoBlog";
 import { blogSection } from "../data/portfolio";
+import MonoBlog from "../components/blog/MonoBlog";
 
 const BlogsPage = () => {
   return (
