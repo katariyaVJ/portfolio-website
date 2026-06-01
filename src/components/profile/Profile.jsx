@@ -9,10 +9,13 @@ const Profile = () => {
         <div className="absolute -top-24 -left-24 w-32 h-32 sm:w-48 sm:h-48 bg-[var(--accent)]/10 rounded-full blur-[60px] group-hover:bg-[var(--accent)]/20 transition-all duration-700" />
 
         <div className="relative z-10 w-full">
-          <div className="w-full aspect-square max-w-[314px] mx-auto rounded-[2rem] overflow-hidden mb-8 border border-white/5 group-hover:border-[var(--accent)]/20 transition-all duration-500">
+          <div 
+            className="w-full mx-auto max-w-[314px] rounded-[2rem] overflow-hidden mb-8 border border-white/5 group-hover:border-[var(--accent)]/20 transition-all duration-500"
+            style={{ aspectRatio: '1 / 1' }}
+          >
             <img
               decoding="async"
-              loading="lazy"
+              fetchPriority="high"
               src={images.hero}
               className="w-full h-full object-cover transition-all duration-700"
               alt={images.heroAlt ?? introduction.name}

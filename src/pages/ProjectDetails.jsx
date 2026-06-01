@@ -5,7 +5,9 @@ import { portfolioSection } from "../data/portfolio";
 
 const ProjectDetails = () => {
   const { id } = useParams();
-  const currentIndex = portfolioSection.projects.findIndex((p) => p.id === id);
+  const currentIndex = portfolioSection.projects.findIndex(
+    (p) => p.id === id || p.link.endsWith(id)
+  );
   const project = portfolioSection.projects[currentIndex];
 
   const nextProject = currentIndex !== -1 
@@ -14,7 +16,7 @@ const ProjectDetails = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [id]);
 
   if (!project) {
     return (
