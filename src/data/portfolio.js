@@ -6,6 +6,11 @@
 import { faEnvelope, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 
 import heroPortrait from "../assets/images/vijay-profile.png";
+import portCard6 from "../assets/images/portfolio-images/card-6.png";
+import blogImg1 from "../assets/images/blog/blog-1.jpg";
+import blogImg2 from "../assets/images/blog/blog-2.jpg";
+import blogImg3 from "../assets/images/blog/blog-3.jpg";
+import blogImg4 from "../assets/images/blog/blog-4.jpg";
 import resumePdf from "../assets/files/Resume.pdf";
 
 export const LINKEDIN_URL = "https://www.linkedin.com/in/vijay-katariya-610761277/";
