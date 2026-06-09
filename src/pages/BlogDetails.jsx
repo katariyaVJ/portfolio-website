@@ -3,7 +3,6 @@ import { Link, useParams } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
 import { blogSection } from "../data/portfolio";
-import fallbackImg from "../assets/images/blog/blog-2.jpg";
 
 const BlogDetails = () => {
   const { slug } = useParams();
